@@ -1,0 +1,79 @@
+@import "./var";
+@import "./mixin";
+
+.setting-tabs{
+    .tab-head{
+        h3{
+            @include font($font-size-p, $med-font, $primary-txt-clr);
+            margin-bottom: 5px;
+        }
+        p{
+            @include font($font-size-13, normal, $gray-color);
+        }
+    }
+    .nav-tabs{
+        @include flexM(flex, center, center);
+        box-shadow: 2px 5px 20px 0 rgba(33, 35, 38, 0.02);
+        border-radius: $input-radius;
+        background: $white-clr;
+        border-bottom: 0;
+        margin-bottom: 50px;
+        .nav-item{
+            flex: 1;
+            @include flexM(flex, center, center);
+            .nav-link{
+                border: none;
+                @include font($font-size-md, normal, $gray-color);
+                padding: 17px 0;;
+                border-bottom: 2px solid transparent;
+                min-width: 80%;
+                &.active{
+                    color: $primary-light-clr;
+                    border-bottom: 2px solid $primary-light-clr;
+                }
+            }
+        }
+    }
+    .tab-content{
+        .tab-text{
+            background: $white-clr;
+            padding: 33px 38px;
+            border-radius: $input-radius;
+        }
+        .button-2{
+            @include flexM(flex, center, flex-end);
+            .btn{
+                min-width: 250px;
+                min-height: 50px;
+                text-transform: $capital;
+                @include font($font-size-md, $med-font, $white-clr);
+                margin-left: 20px;
+            }
+        }
+    }
+}
+
+.message-tabs{
+    .nav-tabs{
+        display: inline-flex;
+        border-bottom: 0;
+        margin-bottom: 50px;
+        background: $white-clr;
+        border-radius: $input-radius;
+        .nav-item{
+            @include flexM(flex, center, center);
+            .nav-link{
+                border: none;
+                @include font($font-size-md, $med-font, $gray-color);
+                border-radius: $input-radius;
+                padding: 12.5px 30px;
+                margin-bottom: 0;
+                min-width: 250px;
+                &.active{
+                    color: $primary-light-clr;
+                    background: rgba(181, 62, 240, 0.1);
+                }
+            }
+        }
+    }
+}

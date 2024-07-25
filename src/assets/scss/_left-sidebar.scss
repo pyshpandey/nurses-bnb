@@ -1,0 +1,102 @@
+@import "./var";
+@import "./mixin";
+
+.left-sidebar{
+    .logo{
+        padding: 60px 36px 70px 36px;
+    }
+    h6{
+        @include font($font-size-sm, $med-font, $white-clr);
+        padding: 0 20px 16px 20px;
+    }
+    .nav{
+        ul{
+            width: 100%;
+            li{
+                list-style: none;
+                a{
+                    @include font($font-size-md, $med-font, $white-clr);
+                    padding: 1.5rem;
+                    @include transition(all ease-in-out 0.2s);
+                    position: relative;
+                    &:hover, &.is-active{
+                        @include transition(all ease-in-out 0.2s);
+                        background: rgba(33, 35, 38, 0.1);
+                    }
+                }
+                &.Profile{
+                    a{
+                        padding: 1.5rem 1.2rem;
+                        img{
+                            border-radius: $input-radius;
+                            width: 30px;
+                            height: 30px;
+                            object-fit: cover;
+                        }
+                    }
+                }
+            }
+            
+        }
+        &.no-list{
+            ul{
+                counter-reset: item;
+                li{
+                    a{
+                        counter-increment: item;
+                        padding: 1.5rem 1.5rem 1.5rem 3.75rem;
+                        &::before{
+                            content: counter(item);
+                            background: rgba(255, 255, 255, 0.8);
+                            @include flexM(flex, center, center);
+                            border-radius: 50%;
+                            @include font($font-size-sm, $e-bold-font, $primary-light-clr);
+                            @include position(absolute, 20px, 25px, 21px, 21px);
+                        }
+                        &:hover, &.is-active{
+                            &::before{
+                                background: $white-clr;
+                            }
+                        }
+                        &.is-done{
+                            &::before{
+                                background: $succ-clr url('../img/tick-icon.svg') center no-repeat;
+                                color: transparent;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .dashboard-nav{
+            width: calc(100% - 20px);
+            margin: 0 10px;
+            li{
+                a{
+                    padding: 10px 15px;
+                    @include font($font-size-p, 300, rgba(255, 255, 255, 0.7));
+                    @include flexM(flex, center, flex-start);
+                    border-radius: $input-radius;
+                    margin-bottom: 10px;
+                    &::before{
+                        display: none;
+                    }
+                    img{
+                        margin-right: 20px;
+                    }
+                    &:hover, &.is-active{
+                        color: $white-clr;
+                        img{
+                            color: $rejected-clr;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.owner-nav{
+        .logo{
+            padding: 4.375rem 1.25rem;
+        }
+    }
+}

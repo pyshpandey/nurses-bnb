@@ -1,0 +1,456 @@
+*, ul, dl, ol, h1, h2, h3, h4, h5, h6, p{
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  letter-spacing: normal;
+  font-family: $font;
+}
+.mr-b-70{
+  margin-bottom: 4.375rem;
+}
+.mr-b-60{
+  margin-bottom: 3.75rem;
+}
+.mr-b-50{
+  margin-bottom: 3.125rem;
+}
+.mr-b-40{
+  margin-bottom: 2.5rem;
+}
+.mr-b-36{
+  margin-bottom: 2.25rem;
+}
+.mr-b-30{
+  margin-bottom: 1.875rem !important;
+  @media (max-width: 767px) {
+    margin-bottom: 0;
+  }
+  &.mob-mr-b-30{
+    margin-bottom: 1.875rem;
+  }
+}
+.mr-b-20{
+  margin-bottom: 1.25rem;
+}
+.mr-b-25{
+  margin-bottom: 1.563rem;
+}
+.mr-b-15{
+  margin-bottom: 1rem;
+}
+.mr-b-10{
+  margin-bottom: 10px;
+}
+.mr-l-15{
+  margin-left: 15px;
+}
+.w-280{
+  width: 280px !important;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+.word-limt{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+  font-style: italic;
+  font-size: 13px;
+  color: #5e6267;
+}
+.btn:active:focus, .btn:focus{
+  box-shadow: none;
+}
+.btn.delete-btn, .btn.add-btn{
+  width: 100%;
+  @media (max-width: 767px) {
+    height: 65px;
+  } 
+}
+.btn.delete-btn{
+  background: rgba(208, 22, 22, 0.05);
+}
+.sync-btn.btn {
+  background: rgba(181, 62, 240, 0.1);
+  border: none;
+  @include font(11px, bold, $primary-light-clr);
+  text-transform: $capital;
+  font-family: $font;
+  min-width: 149px;
+  border-radius: $input-radius;
+  @media (max-width: 767px) {
+    width: 100%;
+    margin-top: 15px;
+    padding: 7px;
+  }
+}
+.form-floating{
+  @media (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+}
+.overlay{
+  background: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  @include transition(all ease-in-out 0.2s);
+  &.active{
+    @include transition(all ease-in-out 0.2s);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.filter-dropdown{
+  @include position(absolute, 100%, 0, auto, 250px);
+  background: $white-clr;
+  border-radius: $input-radius;
+  padding: 10px 15px;
+  opacity: 0;
+  z-index: 999;
+  visibility: hidden;
+  @include transform(translateY(300px));
+  @include transition( all cubic-bezier(0.4, 0, 0.2, 1) 0.1s);
+  &.right{
+    left: auto;
+    right: 0;
+  }
+  &.active{
+      visibility: visible;
+      opacity: 1;
+      @include transform(translateY(0));
+  }
+  ul{
+    li{
+      list-style: none;
+      @include flexM(flex, center, flex-start);
+      margin-left: 0 !important;
+      @include font($font-size-p, normal, $black-color);
+      cursor: pointer;
+      padding: 15px 15px;
+      @include transition(all ease-in-out 0.2s);
+      width: 100%;
+      &:hover{
+        @include transition(all ease-in-out 0.2s);
+        background-color: #eee;
+      }
+      a{
+        width: 100%;
+        text-align: left;
+        display: block !important;
+      } 
+    }
+  }
+}
+.red-color{
+  color: $error-clr !important;
+}
+.pos-rel{
+  position: relative;
+  img{
+    cursor: pointer;
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    width: 20px;
+    height: auto;
+  }
+}
+.gray-clr{
+  background-color: rgba(0, 0, 0, 0.02) !important;
+}
+.white-bg{
+  background: $white-clr !important;
+}
+.pad-22-tb{
+  padding: 22px 0 !important;
+  @media (max-width: 767px) {
+    padding: 0 !important;
+  }
+}
+
+.rejection-reason, .succ-reason{
+  border: solid 1px rgba(239, 44, 44, 0.4);
+  background-color: rgba(239, 44, 44, 0.05);
+  border-radius: $input-radius;
+  padding: 20px 30px;
+  h2{
+    @include font($font-size-md, $heading-font, $error-clr);
+    margin-bottom: 15px;
+  }
+  ul{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    li{
+      list-style-position: inside;
+      @include font($font-size-13, normal, $primary-txt-clr);
+      margin-bottom: 15px;
+    }
+  }
+  h6{
+    @include font($font-size-13, normal, $gray-color);
+    margin-bottom: 5px
+  }
+  p{
+    @include font($font-size-md, normal, $primary-txt-clr);
+    line-height: 2.14;
+  }
+}
+.succ-reason{
+  background: rgba(87, 176, 127, 0.1);
+  border: solid 1px rgba(87, 176, 127, 0.1);
+  h2{
+    color: $succ-clr;
+  }
+}
+
+.check-in-block{
+  background: rgba(94, 98, 103, 0.05);
+  padding: 30px;
+  border-radius: $input-radius;
+  .txt-block{
+    @include flexM(inline-flex, center, flex-start);
+    .img{
+      min-width: 40px;
+      height: 40px;
+      @include flexM(inline-flex, center, center);
+      background: rgba(33, 35, 38, 0.1);
+      border-radius:  $input-radius;
+      margin-right: 20px;
+    }
+    .text{
+      width: calc(100% - 60px);
+      h3{
+        @include font($font-size-p, $med-font, $primary-txt-clr);
+        margin-bottom: 5px;
+      }
+      p{
+        @include font($font-size-13, normal, $gray-color);
+      }
+    }
+  }
+  .flex-end{
+    @include flexM(inline-flex, center, flex-end);
+  }
+}
+.download-evict{
+  background: rgba(94, 98, 103, 0.05);
+  padding: 10px 20px;
+  border-radius: $input-radius;
+  p{
+    img{
+      max-width: 30px;
+    }
+    @include font($font-size-13, normal, $gray-color);
+  }
+  .align-right{
+    @include flexM(flex, center, flex-end);
+    height: 100%;
+    a{
+      @include font($font-size-12, $semi-font, $primary-light-clr);
+      text-transform: $capital;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+.striped-table{
+  &.bg-gray{
+    background: $light-gray;
+    padding: 30px;
+    border-radius: $input-radius;
+  }
+  .t-head{
+    h4{
+      @include font($font-size-h3, $bold-font-8, $primary-txt-clr);
+    }
+    .align-right{
+      @include flexM(flex, center, flex-end);
+      @include font($font-size-md, $med-font, $gray-color);
+    }
+  }
+  .t-body{
+    border-bottom: 1px solid rgba(33, 35, 38, 0.1);
+    padding: 15px 0;
+    p{
+      @include font($font-size-md, $med-font, $gray-color);
+      &.align-right{
+        text-align: right;
+      }
+    }
+    b{
+      @include font($font-size-md, $heading-font, $primary-light-clr);
+      &.align-right{
+        @include flexM(flex, center, flex-end);
+      }
+      &.red-color{
+        color: $error-clr;
+      }
+    }
+  }
+}
+.bdr-btm-n{
+  border-bottom: none;
+  img{
+    max-width: 25px;
+  }
+}
+.content-block{
+      padding: 30px 0;
+      border-bottom: 1px solid rgba(33, 35, 38, 0.1);
+      &.brd-btm-n{
+        border-bottom: none;
+      }
+      h4{
+        @include font($font-size-p, $semi-font, $primary-txt-clr);
+        line-height: 28px;
+        margin-bottom: 5px;
+      }
+      p{
+        @include font($font-size-p, normal, $gray-color);
+        line-height: 28px;
+      }
+}
+.upload-img-list{
+  @include flexM(flex, center, flex-start);
+  margin-top: 10px;
+  .img-item{
+    display: flex;
+    margin-right: 20px;
+    img{
+      max-width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: $input-radius;
+    }
+  }
+}
+.notification{
+  .table-col{
+    .prop-img{
+      background: rgba(33, 35, 38, 0.1);
+      @include flexM(flex, center, center);
+      border-radius: $input-radius;
+      min-width: 40px;
+      height: 40px;
+    }
+    .prop-detail{
+      h4{
+        font-size: $font-size-p;
+      }
+    }
+    .arrow-img{
+      @include flexM(flex, center, flex-end);
+      width: 100%;
+      img{
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.no-content{
+  @include flexM(flex, center, center);
+  flex-flow: column;
+  height: 60vh;
+  img{
+    mix-blend-mode: luminosity;
+    margin-bottom: 50px;
+  }
+  h2{
+    @include font($font-size-lg, $heading-font, $primary-txt-clr);
+    margin-bottom: 10px;
+  }
+  p{
+    @include font($font-size-p, normal, $gray-color);
+    line-height: 1.73;
+    max-width: 350px;
+    text-align: center;
+  }
+  .btn{
+    margin-top: 40px;
+    min-width: 220px;
+  }
+}
+.d-flex{
+  display: flex;
+}
+.error-message {
+  @include font($font-size-md, normal, $error-clr);
+  margin-top: 10px;
+  &:empty{
+    display: none;
+  }
+}
+
+// Loading style
+.loading-wrp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .loading {
+    width: 3rem;
+    height: 3rem;
+    &.text-secondary{
+      color: $white-clr !important;
+    }
+  }
+}
+
+// Toast Message UI
+.toast{
+  &.toast-customize{
+    position: fixed;
+    top: 40px;
+    right: 52px;
+    background-color: $white-clr !important;
+    border-radius: $input-radius;
+    @include font($font-size-15, normal, $primary-txt-clr);
+    .toast-header{
+      position: absolute;
+      top: 24px;
+      right: 15px;
+      background: transparent;
+      border: none;
+      .btn-close{
+        margin: 0;
+        outline: none;
+        width: 10px;
+        height: 10px;
+        padding: 1px;
+        &:focus{
+          outline: none;
+          box-shadow: inherit;
+        }
+      }
+    }
+    .toast-body{
+      padding: 1.375rem 1.25rem;
+      @include flexM(flex, center, flex-start);
+      .icon{
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        @include flexM(inline-flex, center, center);
+        margin-right: 10px;
+        background: $succ-clr;
+        &[bg="warning"]{
+          background: $error-clr;
+        }
+      }
+    }
+  }
+}

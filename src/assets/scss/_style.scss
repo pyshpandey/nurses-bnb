@@ -1,0 +1,89 @@
+@import "_var";
+@import "_mixin";
+@import "_button";
+@import "_left-sidebar";
+@import "_fonts";
+@import "_forms";
+@import "_breadcrumb";
+@import "_global";
+@import "_right-sidebar";
+@import "_modal";
+@import "_pagination";
+@import "_home-page";
+@import "_sign-in";
+@import "_tabs";
+@import "_table";
+
+.main-wrapper {
+  background-color: $primary-clr;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  .mobile-header {
+    display: flex;
+    width: 100%;
+    padding: 25px 0 20px;
+    align-items: center;
+    @media (min-width: 767px) {
+      display: none;
+    }
+    .logo {
+      height: 100%;
+      align-items: center;
+      display: flex;
+    }
+    .right-header {
+      @include flexM(flex, center, flex-end);
+      .prof-pic {
+        margin-left: 25px;
+        img {
+          width: 25px;
+          height: 25px;
+          object-fit: cover;
+          border-radius: 8px;
+        }
+      }
+    }
+  }
+  .left-sidebar {
+    flex: 0 0 auto;
+    width: 250px;
+    &.dashboard {
+      width: 280px;
+    }
+    &.owner-nav{
+      width: 70px;
+      position: relative;
+      a.logout {
+          position: absolute;
+          bottom: 30px;
+          left: 0;
+          padding: 1.4rem;
+      }
+    }
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+  .right-sidebar {
+    flex: 0 0 auto;
+    width: calc(100% - 250px);
+    &.dashboard {
+      width: calc(100% - 280px);
+      @media (max-width: 767px) {
+        width: 100%;
+      }
+    }
+    &.owner-dashboard{
+      width: calc(100% - 70px);
+      @media (max-width: 767px) {
+          width: 100%;
+      }
+    }
+    @media (max-width: 767px) {
+      width: 100%;
+    }
+  }
+}
+
+

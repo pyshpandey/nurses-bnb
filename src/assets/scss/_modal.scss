@@ -1,0 +1,133 @@
+@import "./var";
+@import "./mixin";
+
+.bank-accont-modal{
+  .modal-dialog{
+    max-width: 580px;
+  }
+}
+.modal-dialog{
+  height: 100%;
+  margin: auto;
+  @include flexM(flex, center, center);
+}
+.modal-content{
+  border: none;
+  border-radius: $input-radius;
+  .modal-box{
+    padding: 30px;
+    .header{
+      margin-bottom: 30px;
+      h3{
+        @include font($font-size-h3, $bold-font, $primary-txt-clr);
+        margin-bottom: 5px;
+        position: relative;
+        .cross-btn{
+          position: absolute;
+          top: 0;
+          right: 0;
+          cursor: pointer;
+        }
+      }
+      p{
+        @include font($font-size-md, normal, $gray-color);
+        line-height: 24px;
+      }
+    }
+    .button-wrp{
+      .btn{
+        width: 50%;
+        font-size: $font-size-12;
+        padding: 11px;
+      }
+    }
+  }
+}
+.rating-pop{
+  .modal-dialog{
+    max-width: 400px;
+  }
+  .modal-box{
+    padding: 50px;
+    text-align: center;
+    .button-wrp{
+      .btn{
+        width: 100%;
+      }
+    }
+  }
+  .rating-stars{
+    @include flexM(flex, center, center);
+  }
+  .rating-txt {
+    @include font($font-size-md, normal, $primary-light-clr);
+  }
+}
+.pre-history-modal{
+  .modal-dialog{
+    max-width: 690px;
+    .modal-content{
+      background-color: $light-gray;
+    }
+  }
+}
+.reject--list-pop{
+  .modal-dialog{
+    max-width: 400px;
+    .check-list{
+      margin-bottom: 15px;
+      display: flex;
+      label{
+        line-height: 1.57;
+      }
+      input{
+        margin-top: 3px;
+        &:after{
+          top: 5px;
+        }
+      }
+    }
+    .button-wrp{
+      display: flex;
+      .btn{
+        border-radius: $input-radius;
+        text-transform: $capital;
+        &.btn-danger{
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+  &.gray-bg{
+    .modal-content{
+      background: #f8f8f8;
+    }
+  }
+}
+
+.check-In-pop{
+  .modal-dialog{
+    max-width: 400px;
+  }
+  .thumb-img{
+    img{
+      max-width: 100%;
+    }
+  }
+  .text{
+    h5{
+      @include font($font-size-12, normal, $gray-color);
+      margin-bottom: 5px;
+    }
+    p{
+      @include font($font-size-p, normal, $primary-txt-clr);
+      line-height: 28px;
+    }
+  }
+}
+
+.w-450{
+  .modal-dialog{
+    max-width: 450px;
+  }
+}

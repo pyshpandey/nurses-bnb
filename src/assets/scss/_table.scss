@@ -1,0 +1,156 @@
+@import "./var";
+@import "./mixin";
+
+.table-head{
+    background: rgba(33, 35, 38, 0.05);
+    border-radius: $input-radius;
+    margin-bottom: 30px;
+    .table-col{
+        padding: 19px 20px;
+        &.align-right{
+            @include flexM(flex, center, flex-end);
+        }
+        span{
+            @include font($font-size-sm, $heading-font, $gray-color);
+            text-transform: $capital;
+            @include flexM(flex, center, flex-start);
+            cursor: pointer;
+            img{
+                margin-left: 4px;
+            }
+        }
+    }
+}
+.table-body{
+    background: $white-clr;
+    border-radius: $input-radius;
+    margin-bottom: 20px;
+    &.gray-bg{
+        background: rgba(33, 35, 38, 0.05);
+    }
+    .table-col{
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        height: 100%;
+        &.align-right{
+            @include flexM(flex, center, flex-end);
+            height: 100%;
+            &.align-right{
+                max-height: 80px;
+            }
+        }
+        &.flex-start{
+            align-items: flex-start;
+            p{
+                line-height: 26px;
+            }
+        }
+        .prop-img{
+            display: flex;
+            margin-right: 10px;
+            overflow: hidden;
+            border-radius: 6px;
+            &.mr-r-20{
+                margin-right: 20px;
+            }
+            img{
+                max-width: 40px;
+                height: auto;
+            }
+        }
+        .prop-detail{
+            display: flex;
+            flex-flow: column;
+            h4{
+                @include font($font-size-md, $semi-font, $black-color);
+                margin-bottom: 5px;
+                line-height: 1.54;
+                i{
+                    font-style: normal;    
+                    margin-left: 10px;
+                    padding-left: 10px;
+                    position: relative;
+                    &::after{
+                        content: "";
+                        @include position(absolute, 2px, 0, auto, auto);
+                        border-left: 1px solid #aaaaaa;
+                        bottom: 3px;
+                    }
+                }
+            }
+            p{
+                @include font($font-size-13, normal, $gray-color);
+            }
+        }
+        .list-action{
+            position: relative;
+            .filter-dropdown{
+                right: -20px;
+                left: auto;
+                margin-top: 28px;
+            }
+        }
+        p{
+            @include font($font-size-13, normal, $gray-color);
+            &.role{
+                color: $primary-light-clr;
+            }
+            &.homeowner{
+                color: $blue-clr;
+            }
+            &.both{
+                color: $succ-clr;
+            }
+        }
+        .room-detail{
+            display: flex;
+            li{
+                margin: 0;
+                list-style: none;
+                @include font($font-size-13, normal, $gray-color);
+                position: relative;
+                padding-left: 12px;
+                margin-left: 10px;
+                &::before{
+                    content: "";
+                    @include position(absolute, 4px, 0, 5px, 5px);
+                    border-radius: 50%;
+                    background: #cecfd1;
+                }
+                &:first-of-type{
+                    padding-left: 0;
+                    margin-left: 0;
+                    &::before{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+.bank-table{
+    .row{
+        .col{
+            &:first-of-type{
+                max-width: 70px;
+            }
+            &:nth-child(2){
+                min-width: 220px;
+            }
+            &:last-of-type{
+                max-width: 45px;
+            }
+            .delete-btn{
+                width: 24px;
+                height: 24px;
+                border: none;
+                @include flexM(flex, center, center);
+                margin: auto;
+                img{
+                    max-width: 18px;
+                }
+            }
+        }
+    }
+}

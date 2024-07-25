@@ -1,0 +1,56 @@
+@mixin font($size, $weight, $text-color) {
+    font-size: $size;
+    font-weight: $weight;
+    color: $text-color;
+ }
+
+
+@mixin for-size($size) {
+  @if $size == phone {
+    @media (max-width: 479px) { @content; }
+  } @else if $size == tablet-up {
+    @media (max-width: 767px) { @content; }
+  } @else if $size == tablet {
+    @media (max-width: 991px) { @content; }
+  } @else if $size == desktop {
+    @media (max-width: 1099px) { @content; }
+  } @else if $size == big-desktop {
+    @media (max-width: 1599px) { @content; }
+  }
+}
+
+@mixin transition($x){
+    transition: $x;
+    -webkit-transition: $x;
+    -moz-transition: $x;
+    -ms-transition: $x;
+    -o-transition: $x;
+}
+@mixin transform($y){
+  transform: $y;
+  -webkit-transform: $y;
+  -moz-transform: $y;
+  -ms-transform: $y;
+  -o-transform: $y;
+}
+
+@mixin position($pos, $pt, $pl, $eh, $ew){
+  position: $pos;
+  top: $pt;
+  left: $pl;
+  height: $eh;
+  width: $ew;
+}
+
+@mixin flexM($dProp, $alignX, $alignY){
+  display: $dProp;
+  align-items: $alignX;
+  justify-content: $alignY;
+}
+
+@mixin gradient($direction, $list) {
+  background: -webkit-linear-gradient($direction, $list);
+  background: -moz-linear-gradient($direction, $list);
+  background: -o-linear-gradient($direction, $list);
+  background: linear-gradient($direction, $list);
+}

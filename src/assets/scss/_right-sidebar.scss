@@ -1,0 +1,876 @@
+@import "./var";
+@import "./mixin";
+
+.form-container{
+    border-radius: 0.625rem;
+    background-color: $white-clr;
+    margin: 1.875rem 1.875rem 1.875rem 0;
+    padding: 3.125rem 2.375rem;
+    @media (max-width: 767px) {
+        padding: 30px 10px 20px 10px;
+        margin: 0 10px 20px;
+    }
+    &.for-admin{
+        margin: 0;
+        border-radius: 0;
+        padding: 3.125rem;
+        min-height: calc(100vh - 71px);
+        background: none;
+    }
+    .heading{
+        h1{
+
+            @include font($font-size-lg, $heading-font, $primary-txt-clr);
+            margin-bottom: 10px;
+        }
+        p{
+            @include font($font-size-p, $reg-font, $gray-color);
+            max-width: 450px;
+            line-height: 1.73;
+        }
+    }
+    .switch-block{
+        background-color: $light-gray;
+        border-radius: $input-radius;
+        padding: 1.25rem;
+        h3{
+            @include font($font-size-h3, normal, $primary-txt-clr);
+            margin-bottom: 5px;
+        }
+        p{
+            @include font($font-size-p, normal, $gray-color);
+        }
+        h6{
+            @include font(12px, normal, $gray-color);
+            margin-bottom: 5px;
+        }
+        strong{
+            @include font($font-size-p, $med-font, $primary-txt-clr);
+            @include flexM(flex, center, start);
+            height: 100%;
+        }
+        .flex-end{
+            @include flexM(flex, center, end);
+        }
+        .white-block {
+            background: $white-clr;
+            padding: 20px;
+            border-radius: $input-radius;
+            box-shadow: 2px 5px 20px 0 rgba(33, 35, 38, .05);
+            margin: 30px 0 10px 0;
+            &.mob-ui{
+                @media (max-width: 767px) {
+                    margin: 30px -20px -20px -20px;
+                }
+            }
+            &.less-mr{
+                margin: 10px 0;
+                padding: 15px 20px;
+                &:last-of-type{
+                    margin-bottom: 0;
+                }
+            }
+            .custom-row {
+                display: flex;
+                @media (max-width: 767px) {
+                    flex-flow: column;
+                }
+                .custom-col-5 {
+                    flex: 1;
+                    &:first-of-type{
+                        margin-right: 30px;
+                        @media (max-width: 767px) {
+                            margin-right: 0;
+                        }
+                    }
+                }
+                .custom-col-2 {
+                    display: flex;
+                    width: 65px;
+                    @media (max-width: 767px) {
+                        width: 100%;
+                    }
+                    &:last-of-type{
+                        margin-left: 20px;
+                        @media (max-width: 767px) {
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+            
+        }
+        .auto-w-box{
+            &.bx-w-sm{
+                .white-block{
+                    min-width: 140px;
+                    @media (max-width: 767px) {
+                        min-width: auto;
+                        padding: 20px 0 20px 20px;
+                        margin-right: 10px;
+                        width: 48%;
+                    }
+                }
+            }
+            .white-block{
+                min-width: 160px;
+                display: inline-flex;
+                margin: 20px 20px 0 0;
+                @media (max-width: 767px) {
+                    min-width: auto;
+                    width: 47%;
+                    margin-right: 15px;
+                    &:nth-child(even){
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+        &.strach-checkbox{
+            .white-block{
+                padding: 25px 20px;
+            }
+        }
+    }
+    .upload-img-list{
+        display: flex;
+        margin-top: 20px;
+        .img-item{
+            display: inline-flex;
+            position: relative;
+            border-radius: $input-radius;
+            overflow: hidden;
+            margin-left: 20px;
+            &:first-of-type{
+                margin-left: 0;
+            }
+            .delete-ic{
+                position: absolute;
+                top: 6px;
+                right: 10px;
+                img{
+                    cursor: pointer;
+                    height: auto;
+                }
+            }
+        }
+    }
+    .white-block-l{
+        background: $white-clr;
+        padding: 30px;
+        border-radius: $input-radius;
+        box-shadow: 2px 5px 20px 0 rgba(33, 35, 38, .05);
+        &.lease-signor {
+            .heading{
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                height: 100%;
+                h3{
+                    @include font($font-size-h3, normal, $primary-txt-clr);
+                }
+            }
+            .delete-btn{
+                max-width: 65px;
+                height: 65px;
+            }
+            .align-right {
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+    }
+    .full-width {
+        width: 100%;
+        text-transform: $capital;
+        background: $light-gray;
+        border: none;
+        border-radius: 10px;
+        padding: 14.5px;
+        @include font($font-size-md, $med-font, $primary-txt-clr);
+    }
+    .thumb-item{
+        @include flexM(flex, center, center);
+        position: relative;
+        img{
+            width: 100%;
+            border-radius: $input-radius;
+        }
+        a{
+            @include position(absolute, 0, 0, 100%, 100%);
+            @include flexM(flex, center, center);
+            color: $white-clr;
+            background: rgba(0, 0, 0, 0.6);
+            cursor: pointer;
+            border-radius: $input-radius;
+            &:hover{
+                color: $white-clr;
+                text-decoration: underline;
+            }
+        }
+        .simple-rating{
+            @include position(absolute, auto, 20px, auto, auto);
+            background: $primary-txt-clr;
+            @include font($font-size-13,  $heading-font, $white-clr);
+            bottom: 20px;
+            padding: 17px 20px;
+            text-transform: $capital;
+            border-radius: $input-radius;
+        }
+        .rating{
+            @include position(absolute, auto, 20px, auto, auto);
+            @include gradient(to left, $succ-gradient-color);
+            @include font($font-size-13,  $heading-font, $white-clr);
+            bottom: 20px;
+            padding: 17px 20px;
+            text-transform: $capital;
+            border-radius: $input-radius;
+            @include flexM(flex, center, flex-start);
+            width: 355px;
+            overflow: hidden;
+            .img{
+                margin-right: 10px;
+            }
+            .txt{
+                p{
+                    @include font($font-size-13, 300, $white-clr);
+                    opacity: 0.8;
+                }
+                h4{
+                    @include font($font-size-p, $semi-font, $white-clr);
+                }
+            }
+            .rate{
+                margin: 0 20px;
+                h3{
+                    @include font($font-size-22, $e-bold-font, $white-clr);
+                }
+            }
+            .bton{
+                @include position(absolute, 0, auto, 100%, 60px);
+                @include flexM(flex, center, center);
+                right: 0;
+                background: rgba(33, 35, 38, 0.2);
+            }
+        }
+    }
+    .detail-heading{
+        h2{
+            @include  font($font-size-20, $heading-font, $black-color);
+            margin-bottom: 10px;
+        }
+        p{
+            @include  font($font-size-md, normal, $primary-txt-clr);
+        }
+        .align-right {
+            @include flexM(flex, center, flex-end);
+            height: 100%;
+            .week-btn{
+                background: rgba(33, 35, 38, 0.8);
+                border-radius: $input-radius;
+                border: none;
+                margin-right: 10px;
+                @include  font($font-size-sm, normal, $white-clr);
+                padding: 7px 17px;
+                b{
+                    @include  font($font-size-p, $e-bold-font, $white-clr);
+                }
+            }
+        }
+    }
+    .des-block, .block-out, .lease-signor-block{
+        h3{
+            @include  font($font-size-h3, normal, $primary-txt-clr);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        h5{
+            @include  font($font-size-md, normal, $gray-color);
+            margin-bottom: 5px;
+        }
+        p{
+            @include  font($font-size-md, normal, #171a1d);
+            line-height: 30px;
+        }
+        @media (max-width: 767px) {
+            &.mr-b-40{
+                margin-bottom: 0;
+            }
+        }
+        @media (max-width: 767px) {
+            .table-item{
+                margin-bottom: 20px;
+            }
+        }
+    }
+    .lease-signor-block{
+        background: rgba(0, 0, 0, 0.02);
+        border-radius: $input-radius;
+        .add-pad{
+            padding: 30px;
+        }
+        .heading {
+            padding: 30px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            @media (max-width: 767px) {
+                padding: 20px;
+            }
+            .user-thumb{
+              background: rgba(33, 35, 38, 0.1);
+              min-width: 40px;
+              height: 40px;  
+              @include flexM(flex, center, center);
+              margin-right: 20px;
+              border-radius: $input-radius;
+            }
+            .title{
+                h4{
+                    @include  font($font-size-h3, normal, $primary-txt-clr);
+                }
+                p{
+                    @include  font($font-size-md, normal, $gray-color);
+                    line-height: 30px;
+                }
+            }
+            &.mr-b-0{
+                margin-bottom: 0;;
+            }
+            &.pad-t-b-20{
+                padding: 20px 30px;
+            }
+        }
+        &.white-bg{
+            background: $white-clr;
+            .header-block{
+                padding: 30px;
+                position: relative;
+                &::after{
+                    content: "";
+                    @include position(absolute, 100%, 30px, 1px, calc(100% - 60px));
+                    background: rgba(0, 0, 0, 0.05);
+                }
+                .heading{
+                    border-bottom: 0;
+                    padding: 0;
+                }
+            }
+            .border-btm{
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                padding: 30px 0;
+                .table-item{
+                    p{
+                        @include font($font-size-p, $med-font, $primary-txt-clr);
+                        &.status{
+                            color: $succ-clr;
+                            &.pendding{
+                                color: $error-clr;
+                            }
+                            &.make-default{
+                                text-decoration: underline;
+                                color: $primary-light-clr;
+                            }
+                        }
+                        a{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+            .flex-end{
+                @include flexM(flex, center, flex-end);
+            }
+            .radio-btn{
+                @include flexM(flex, center, flex-start);
+                height: 100%;
+            }
+        }
+    }
+    &.min-height{
+        padding: 0;
+        background: $light-gray;
+        .owner-body{
+            padding: 50px 38px;
+            min-height: calc(100vh - 133px);
+            @media (max-width: 767px) {
+                padding: 30px 8px;
+            }
+        }
+        .owner-footer{
+            background: rgba(33, 35, 38, 0.05);
+            padding: 28px;
+            p{
+                @include font($font-size-md, normal, $gray-color);
+            }
+            .hide-mob{
+                .align-right{
+                    @include flexM(flex, center, flex-end);
+                    .owner-nav{
+                        display: flex;
+                        li{
+                            list-style: none;
+                            margin-left: 30px;
+                            &:first-of-type{
+                                margin-left: 0;
+                            }
+                            a{
+                                @include font($font-size-p, normal, $gray-color);
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+                @media (max-width: 767px) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+.dashboard-page{
+    background: $light-gray;
+    .dash-body{
+        padding: 3.125rem;
+        min-height: calc(100vh - 71px);
+        .total-count-sec{
+            .total-item{
+                padding: 24px 30px;
+                border-radius: $input-radius;
+                @include gradient(79deg, $total-booking-color);
+                &.search{
+                    @include gradient(to left, $total-search-color);
+                }
+                p{
+                    @include font($font-size-md, 300, $white-clr);
+                    opacity: 0.7;
+                }
+                h6{
+                    @include font($font-size-20, $heading-font, $white-clr);
+                }
+            }
+        }
+        .card-sec{
+            .card-item{
+                position: relative;
+                overflow: hidden;
+                .card-head{
+                    padding: 50px 30px;
+                    border-radius: $input-radius;
+                    background: rgba(181, 62, 240, 0.05);
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
+                    position: relative;
+                    img{
+                        position: absolute;
+                        bottom: -34px;
+                        right: -50px;
+                    }
+                    strong{
+                        @include font($font-size-p, $heading-font, $primary-light-clr);
+                        margin-bottom: 5px;
+                    }
+                    h2{
+                        @include font($font-size-xl, $heading-font, $primary-light-clr);
+                    }
+                    &.payouts{
+                        background: rgba(108, 152, 239, 0.05);
+                        h2{
+                            color: $blue-clr;
+                        }
+                        strong{
+                            color: $blue-clr;
+                        }
+                    }
+                    &.profits{
+                        background: rgba(94, 98, 103, 0.05);
+                        h2{
+                            color: $gray-color;
+                        }
+                        strong{
+                            color: $gray-color;
+                        }
+                    }
+                    &.deposit{
+                        background: rgba(87, 176, 127, 0.05);
+                        h2{
+                            color: $succ-clr;
+                        }
+                        strong{
+                            color: $succ-clr;
+                        }
+                    }
+                    &.cancel{
+                        background: rgba(239, 44, 44, 0.05);
+                        h2{
+                            color: $error-clr;
+                        }
+                        strong{
+                            color: $error-clr;
+                        }
+                    }
+                }
+                .card-bodi{
+                    background: $white-clr;
+                    border-radius: $input-radius;
+                    padding: 9px 30px;
+                    margin-top: -15px;
+                    position: relative;
+                    .card-list{
+                        padding: 22px 0;
+                        display: flex;
+                        align-items: center;
+                        border-bottom: 1px solid rgba(94, 98, 103, 0.05);
+                        &:last-of-type{
+                            border-bottom: none;
+                        }
+                        p{
+                            width: 50%;
+                            @include font($font-size-md, normal, $gray-color);
+                        }
+                        b{
+                            width: 50%;
+                            @include font($font-size-18, $heading-font, $primary-txt-clr);
+                            text-align: end;
+                        }
+                    }
+                }
+            }
+        }
+
+        
+        .pagination-wrp{
+            @include flexM(flex, center, flex-end);
+            margin: 50px 0;
+            .item-count{
+                @include flexM(flex, center, center);
+            }
+        }
+        
+    }
+    .dash-footer{
+        background: rgba(33, 35, 38, 0.05);
+        padding: 28px;
+        p{
+            @include font($font-size-md, normal, $gray-color);
+            text-align: center;
+        }
+    }
+}
+
+// Listing managment CSS
+.dash-body, .owner-body{
+    .heading{
+        margin-bottom: 3.125rem;
+        h2{
+            @include font($font-size-lg, $heading-font, $black-color);
+            @include flexM(flex, center, flex-start);
+            margin-bottom: 5px;
+            .go-back{
+                min-width: 40px;
+                height: 40px;
+                @include flexM(inline-flex, center, center);
+                background: rgba(33, 35, 38, 0.05);
+                border-radius: $input-radius;
+                margin-right: 20px;
+                a{
+                    display: flex;
+                }
+            }
+            span{
+                p{
+                    color: $primary-txt-clr;
+                    margin-top: 5px;
+                }
+            }
+        }
+        p{
+            @include font($font-size-p, normal, $gray-color);
+        }
+        .search-list{
+            border: none;
+            background: rgba(33, 35, 38, 0.05);
+            @include font(13px, normal, $gray-color);
+            padding: 10px 20px;
+            &:focus, &:hover{
+                -moz-box-shadow: 0 0 0 1px rgba(105, 41, 139, 1);
+                box-shadow: 0 0 0 1px rgba(105, 41, 139, 1);
+                -webkit-box-shadow: 0 0 0 1px rgba(105, 41, 139, 1);
+              }  
+        }
+        .align-center{
+            @include flexM(flex, center, center);
+            height: 100%;
+        }
+        .align-right{
+            @include flexM(flex, center, flex-end);
+            height: 100%;
+            @media (max-width: 767px) {
+                margin-top: 20px;
+                height: auto;
+            }
+            .view-list{
+                @include font(12px, normal, $white-clr);
+                @include gradient(to right, $gradient-color);
+                border: none;
+                margin-left: 20px;
+                text-transform: $capital;
+                padding: 11px 22px;
+                border-radius: $input-radius;
+            }
+            .filter-list{
+                position: relative;
+                display: flex;
+                i{
+                    background: $white-clr;
+                    @include font($font-size-13, normal, $gray-color);
+                    border-radius: $input-radius;
+                    padding: 13px 60px 13px 20px;
+                    cursor: pointer;
+                    font-style: normal;
+                }
+                &::after{
+                    content: "";
+                    @include position(absolute, 20px, auto, 0, 0);
+                    right: 20px;
+                    border-top: solid 4px #5e6267;
+                    border-bottom: solid 4px transparent;
+                    border-left: solid 4px transparent;
+                    border-right: 4px solid transparent;
+                }
+                .filter-dropdown{
+                    ul{
+                        li{
+                            .form-check{
+                                input{
+                                    width: 16px;
+                                    height: 16px;
+                                    margin-right: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .label{
+                @include font($font-size-12, normal, $gray-color);
+                margin: 0 15px;
+                + .filter-list{
+                    margin-right: 15px;
+                }
+            }
+            .setting-icon{
+                min-width: 40px;
+                height: 40px;
+                border-radius: $input-radius;
+                background: rgba(33, 35, 38, 0.05);
+                @include flexM(flex, center, center);
+                margin-left: 40px;
+                cursor: pointer;
+                position: relative;
+            }
+        }
+        .user-mang-filter{
+            @include flexM(flex, center, flex-end);
+            height: 100%;
+            .align-center{
+                width: 60%;
+                margin-right: 20px;
+                &.mr-r-0{
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}
+.button-2{
+    @include flexM(flex, center, flex-end);
+    margin-top: 50px;
+    .magnta-btn{
+        margin-left: 15px;
+    }
+    .btn-danger{
+        @include  font($font-size-12, normal, $white-clr);
+        border-radius: $input-radius;
+        text-transform: $capital;
+        padding: 11px 30px;
+    }
+}
+.dash-body{
+    .container-fluid{
+        padding: 0;
+    }
+}
+.part-2{
+    .title{
+        width: 50%;
+        @include flexM(flex, center, flex-start);
+        h4{
+            @include font($font-size-18 !important, $bold-font-8 !important, $primary-txt-clr !important) ;
+        }
+    }
+    .align-right{
+       width: 50%;
+    }
+}
+// User Detail Widget 
+.user-detail{
+    background: $white-clr;
+    border-radius: $input-radius;
+    margin-bottom: 20px;
+    padding: 30px;
+    @include flexM(flex, center, center); 
+    @media (max-width: 767px) {
+        padding: 20px;
+    }
+    .heading{
+        h5{
+            @include font($font-size-18, $bold-font-8, $primary-txt-clr);
+        }
+    }
+    .user-info{
+        @include flexM(flex, center, flex-start); 
+        .img{
+             max-width: 80px;
+             margin-right: 20px;
+             @media (max-width: 767px) {
+                 min-width: 60px;
+                 margin-right: 15px;
+             }
+             img{
+                 max-width: 100%;
+             }
+        }
+        .info{
+            h5{
+                @include font($font-size-18, $semi-font, $primary-txt-clr);
+            }
+            p{
+                @include font($font-size-md, normal, $gray-color);
+                margin-top: 5px;
+            }
+            .change-pic{
+                @include font($font-size-sm, normal, $white-clr);
+                text-transform: $capital;
+                border-radius: $input-radius;
+                margin-bottom: 10px;
+                min-width: 150px;
+            }
+        }
+    }
+    .address-detail{
+        @include flexM(flex, inherit, center);
+        flex-flow: column;
+        height: 100%;
+        h5{
+            @include font($font-size-p, $semi-font, $primary-txt-clr);
+        }
+        p{
+            @include font($font-size-md, normal, $gray-color);
+            margin-bottom: 5px;
+        }
+    }
+    .table-head{
+        margin-bottom: 0;
+        .table-col{
+            padding: 19px 0;
+            &.fisrt {
+                padding: 19px 20px;
+            }
+        }
+    }
+    .table-body{
+        border-bottom: 1px solid rgba(94, 98, 103, 0.05);
+        padding: 20px 0;
+        &.bdr-btm-n{
+            border-bottom: none;
+            margin-bottom: 0;
+            padding: 0;
+        }
+        .table-col{
+            padding: 0;
+        }
+
+    }
+    .heading {
+        display: flex;
+        margin-bottom: 0;
+        .user-thumb{
+          background: rgba(33, 35, 38, 0.1);
+          width: 40px;
+          height: 40px;  
+          @include flexM(flex, center, center);
+          margin-right: 20px;
+          border-radius: $input-radius;
+        }
+        .title{
+            h4{
+                @include  font($font-size-h3, $semi-font, $primary-txt-clr);
+            }
+            p{
+                @include  font($font-size-md, normal, $gray-color);
+                line-height: 30px;
+            }
+        }
+    }
+    .des-block{
+        h5{
+            @include  font($font-size-12, normal, $gray-color);
+        }
+        p{
+            @include  font($font-size-p, normal, $primary-txt-clr);
+            line-height: 30px;
+        }
+        .des{
+            padding-top: 20px;
+            border-top: 1px solid rgba(94, 98, 103, 0.05);
+        }
+        
+    }
+    .align-right{
+        @include flexM(flex, center, flex-end);
+        height: 100%;
+        @media (max-width: 767px) {
+            a{
+                width: 100%;
+                .btn{
+                    width: 100%;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}
+.feature-your-list{
+    padding: 30px;
+    border-radius: $input-radius;
+    @include gradient(to right, $total-booking-color);
+    .text{
+        h2{
+            @include font($font-size-18, $heading-font, $white-clr);
+            margin-bottom: 8px;
+        }
+        p{
+            @include font($font-size-md, normal, $white-clr);
+            line-height: 25px;
+        }
+    }
+    .align-right{
+        @include flexM(flex, center, flex-end);
+        height: 100%;
+        .btn{
+            @include font($font-size-13, bold, inherit);
+            text-transform: $capital;
+            padding: 11px 26px;
+            border-radius: $input-radius;
+            border: none;
+            &.view-more{
+                color: $white-clr;
+                background: rgba(255, 255, 255, 0.1);
+            }
+            &.feature-now{
+                background: $white-clr;
+            }
+        }
+    }
+}

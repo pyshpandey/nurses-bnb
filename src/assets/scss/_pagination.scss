@@ -1,0 +1,57 @@
+@import "./var";
+@import "./mixin";
+
+.pagination-wrp{
+    .pagination{
+        .page-item{
+            @include font($font-size-sm, $med-font, $gray-color);
+            .page-link{
+                color: $gray-color;
+                border: none;
+                background: #f0f0f0;
+                padding: 12px;
+                border-radius: $input-radius;
+                &:focus{
+                    box-shadow: inherit;
+                }
+            }
+        }
+        .item-count{
+            margin: 0 10px;
+            background-color: #f0f0f0;
+            border-radius: $input-radius;
+            padding: 3px 11px;
+            display: flex;
+            .page-item{
+                .page-link{
+                    padding: 8px 12px;
+                    width: 26px;
+                    height: 26px;
+                    @include flexM(flex, center, center);
+                    margin-left: 8px;
+                    border: 1px solid transparent;
+                    border-radius: 50%;
+                    &:hover{
+                        border-color: $primary-txt-clr;
+                    }
+                }
+                &:first-of-type{
+                    margin-left: 0;
+                }
+                &.active{
+                    .page-link{
+                        color: $white-clr;
+                        @include gradient(45deg, $gradient-color);
+                        &:hover{
+                            border-color: #8a24bd;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.align-right{
+        @include flexM(flex, center, flex-end);
+        margin-top: 30px;
+    }
+}

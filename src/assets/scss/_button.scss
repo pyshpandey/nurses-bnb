@@ -1,0 +1,205 @@
+.button-wrp{
+  .col{
+    display: flex;
+    justify-content: flex-end;
+    @media (max-width: 767px) {
+      width: 100%;
+      flex-flow: column;
+    }
+    .btn{
+      color: $white-clr;
+      text-transform: $capital;
+      font-family: $font;
+      font-size: $font-size-md;
+      font-weight: $med-font;
+      border-radius: $input-radius;
+      width: 250px;
+      padding: 0.906rem;
+      border: none;
+      &.btn-secondary{
+        background: $gray-color;
+        margin-right: 20px;
+        @media (max-width: 767px) {
+          width: 100%;
+          margin: 0 0 15px 0;
+        }
+      }
+      &.btn-primary{
+        background: $primary-clr;
+        @include gradient(to right, $gradient-color);
+      }
+      &.sm-btn{
+        width: 210px;
+        @media (max-width: 767px) {
+          width: 100%;
+        }
+      }
+      &:focus{
+        box-shadow: none;
+      }
+      @media (max-width: 767px) {
+        width: 100%;
+      }
+    }
+  }
+}
+.price-btn{
+  background: #4d4f51;
+  @include font(12px, normal, $white-clr);
+  border: none;
+  border-radius: $input-radius;
+  padding: 7px 17px;
+  b{
+      @include font($font-size-p, $heading-font, $white-clr);
+  }
+  &:hover, &:focus{
+    background: $primary-txt-clr;
+  }
+}
+.status-btn{
+  background: rgba(33, 35, 38, 0.1);
+  @include font($font-size-sm, $heading-font, $black-color);
+  border: none;
+  border-radius: 15px;
+  padding: 9px 29px;
+  text-transform: $capital;
+  @media (max-width: 767px) {
+    padding: 8px 13px;
+    flex: 1 auto;
+  }
+  &:hover, &:focus{
+    background: rgba(33, 35, 38, 0.1);
+    color: $black-color;
+  }
+  &.published {
+    color: $published-clr;
+    background: $published-bg-clr;
+  }
+  &.rejected {
+    color: $featured-clr;
+    background: $featured-bg-clr;
+  }
+  &.featured {
+    color: $featured-clr;
+    background: $featured-bg-clr;
+  }
+  &.active {
+    color: $succ-clr;
+    background: rgba(87, 176, 127, 0.1);
+    &:hover, &:focus{
+      box-shadow: inherit;
+    }
+  }
+}
+
+.white-btn{
+  background: $white-clr;
+  border-radius: $input-radius;
+  border: none;
+  text-transform: $capital;
+  @include font($font-size-13, $bold-font-8, $primary-light-clr);
+  width: 200px;
+  padding: 15px;
+  @include flexM(flex, center, center);
+  position: relative;
+  border: 1px solid transparent;
+  overflow: hidden;
+  z-index: 1;
+  &:after{
+    content: "";
+    @include position(absolute, 0, 0, 100%, 0);
+    @include gradient(45deg, $gradient-color);
+    @include transition(all ease-in-out 0.3s);
+    z-index: -1;
+  }
+  &:hover{
+    border-color: $white-clr;
+    color: $white-clr;
+    background: $white-clr;
+    &::after{
+      width: 100%;
+      @include transition(all ease-in-out 0.3s);
+    }
+  }
+  &:focus{
+    border-color: transparent;
+    background: $white-clr;
+    color: $primary-light-clr
+  }
+}
+.magnta-btn{
+  @include font($font-size-12, normal, $white-clr);
+  @include flexM(flex, center, center);
+  @include gradient(to right, $gradient-color);
+  border-radius: $input-radius;
+  text-transform: $capital;
+  padding: 11px;
+  min-width: 200px;
+  position: relative;
+  border: 1px solid transparent;
+  overflow: hidden;
+  z-index: 1;
+  &:after{
+    content: "";
+    @include position(absolute, 0, 0, 100%, 0);
+    background: $white-clr;
+    @include transition(all ease-in-out 0.3s);
+    z-index: -1;
+  }
+  &:hover{
+    border-color: $primary-clr;
+    color: $primary-clr !important;
+    &::after{
+      width: 100%;
+      @include transition(all ease-in-out 0.3s);
+    }
+  }
+  &:focus{
+    border-color: $primary-clr;
+  }
+}
+.button{
+  @include font($font-size-14, normal, $white-clr);
+  text-transform: $capital;
+  padding: 0.844rem;
+  border-radius: $input-radius;
+  @include transition(ease-out 0.4s);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: none;
+  a{
+    &:hover{
+      color: inherit;
+    }
+  }
+  &:after{
+    content: "";
+    @include position(absolute, 0, 0, 100%, 100%);
+    background: $white-clr;
+    @include transition(all ease-in-out 0.3s);
+    z-index: -1;
+    transform: translateX(-100%);
+  }
+  &:hover{
+    @include transition(all ease-in-out 0.3s);
+    &::after{
+      transform: translateX(0);
+      @include transition(all ease-in-out 0.3s);
+    }
+  }
+  &.btn-secondary{
+    background: $gray-color;
+    &:hover{
+      box-shadow: 0 0 0 1px $gray-color;
+      color: $gray-color;
+    }
+  }
+  &.btn-primary{
+    @include gradient(to right, $gradient-color);
+    &:hover{
+      box-shadow: 0 0 0 1px $primary-clr;
+      color: $primary-clr;
+    }
+  }
+}
